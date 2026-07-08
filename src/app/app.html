@@ -1,1 +1,9 @@
 <ngrx-counter></ngrx-counter>
+
+<h1>Oliver Sacks Books Collection</h1>
+
+<h2>Books</h2>
+<app-book-list [books]="books()!" (add)="onAdd($event)" />
+
+<h2>My Collection</h2>
+<app-book-collection [books]="bookCollection()!" (remove)="onRemove($event)" />
