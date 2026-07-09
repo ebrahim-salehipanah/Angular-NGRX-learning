@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { provideState, provideStore } from "@ngrx/store";
 import { productFeature } from "./product.feature";
 
@@ -7,6 +7,7 @@ import { productFeature } from "./product.feature";
     template: `
     product list works!
     `,
+    changeDetection: ChangeDetectionStrategy.Eager,
     providers: [
     ]
 })

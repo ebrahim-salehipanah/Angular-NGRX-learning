@@ -1,9 +1,10 @@
-import { Component, Signal, inject } from '@angular/core';
+import { Component, Signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { increment, decrement, reset } from './counter.actions';
 
 @Component({
     selector: 'ngrx-counter',
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <button id="increment" (click)="increment()">Increment</button>
 

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CounterComponent } from "./counter/counter.component";
 import { BookCollection } from "./book/component/book-collection.component";
 import { BooksActions, BooksApiActions } from './book/books.actions';
@@ -13,6 +13,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [CounterComponent, BookList, BookCollection, RouterOutlet],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css'
 })
 export class App {
