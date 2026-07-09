@@ -6,10 +6,12 @@ import { GoogleBooksService } from './book/service/books-service';
 import { Store } from '@ngrx/store';
 import { selectBookCollection, selectBooks } from './book/books.selectors';
 import { BookList } from './book/component/book-list.component';
+import { RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
-  imports: [CounterComponent, BookList, BookCollection],
+  imports: [CounterComponent, BookList, BookCollection, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -29,10 +31,10 @@ export class App {
   }
 
   ngOnInit() {
-    this.booksService
-      .getBooks()
-      .subscribe((books) =>
-        this.store.dispatch(BooksApiActions.retrievedBookList({ books }))
-      );
+    this.store.dispatch({ type: '[Books Page] Load Books' });    // this.booksService
+    //   .getBooks()
+    //   .subscribe((books) =>
+    //     this.store.dispatch(BooksApiActions.retrievedBookList({ books }))
+    //   );
   }
 }

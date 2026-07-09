@@ -7,16 +7,20 @@ import { counterReducer } from './counter/counter.reducer';
 import { collectionReducer } from './book/collection.reducer';
 import { booksReducer } from './book/books.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideEffects } from '@ngrx/effects';
+import { BooksEffects } from './book/books.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideStore({
-        count: counterReducer,
-        books: booksReducer,
-        collection: collectionReducer,
+      count: counterReducer,
+      books: booksReducer,
+      collection: collectionReducer,
     }),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
-]
+    provideEffects(BooksEffects),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideEffects()
+  ]
 };
